@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  lb:
+    image: kukhanh0812/nginx-proxy:0.0.1
+    networks:
+      - traefik_public
+      - net
+    environment:
+      CHECK_PROXY_UPSTREAM: 0
+      PROXY_MAP: |
+        / => 14.225.204.46:5000/
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels:
+        - ingress.host=webhook.hocdevops.me
+networks:
+  net:
+  traefik_public:
+    external: true

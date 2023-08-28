@@ -1,0 +1,14 @@
+.container {
+    margin: 50px auto;
+    padding: 10px;
+    border: 1px #000 dashed;
+}
+
+.container > .row {
+    margin: 10px 10px;
+    border: 1px #f00 dashed;
+}
+
+.container > .row + .row {
+    margin-top: 40px;
+}
