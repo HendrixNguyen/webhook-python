@@ -38,9 +38,12 @@ class Webhook:
 
         res = self.gh.get(f'repos/{org_name}/{actions_repo}/actions/workflows')
         if res.status_code==200:
+            # khai báo biến _res để lấy res của request khi thành công (có 2 dạng lấy body là json() hoặc text() )
             _res: dict = res.json()
+            # Lấy cái mảng workflows cho response
             arrWorkflows = _res.get('workflows')
             for item in arrWorkflows:
+                #Duyệt qua các thành phần của mảng
                 print('Oject: %s', item)
             
         else:
